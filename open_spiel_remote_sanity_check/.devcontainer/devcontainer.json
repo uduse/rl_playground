@@ -4,14 +4,21 @@
 	"name": "OpenSpiel Sanity Container",
 
 	// Sets the run context to one level up instead of the .devcontainer folder.
-	"context": "..",
+	"context": "../open_spiel",
 
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-	"dockerFile": "../Dockerfile",
+	"dockerFile": "../open_spiel/Dockerfile.base",
+
+	// custom build target for open_spiel
+	// https://openspiel.readthedocs.io/en/latest/install.html#installing-via-docker
+	"build": {"target": "base"},
+	"workspaceFolder": "/workspace",
+	"workspaceMount": "src=remote-workspace,dst=/workspace,type=volume",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.shell.linux": null
+		// "terminal.integrated.shell.linux": null
+		"terminal.integrated.defaultProfile.linux": null
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
